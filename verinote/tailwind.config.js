@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         josefin: ["Josefin Sans", "sans-serif"],
+        italiana: ["Italiana", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
