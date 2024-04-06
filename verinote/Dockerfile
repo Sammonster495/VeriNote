@@ -1,5 +1,5 @@
 # Build the Next.js app
-FROM node:14 as build-stage
+FROM node:18.17.0 as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
