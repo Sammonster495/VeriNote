@@ -18,7 +18,7 @@ export default function Verify(){
         const formData = new FormData();
         formData.append("image", selectedFile); // Use "image" instead of "file" as the key
         try {
-            const response = await axios.post("http://localhost:5000/analyze", formData, {
+            const response = await axios.post(`${process.env.BACKEND_URL}/analyze`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
