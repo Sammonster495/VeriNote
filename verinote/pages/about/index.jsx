@@ -1,5 +1,5 @@
-import Navbar from "../components/navbar";
-import Cards from "../components/cards";
+import Navbar from "../../components/navbar";
+import Cards from "../../components/cards";
 
 export default function About() {
   return (
