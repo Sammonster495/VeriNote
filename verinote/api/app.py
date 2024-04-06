@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 
