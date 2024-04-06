@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Set up the Python environment
-FROM python:3.7-slim
+FROM python:3.11.3-slim
 WORKDIR /app
 COPY --from=build-stage /app/.next ./.next
 COPY ./api ./api
