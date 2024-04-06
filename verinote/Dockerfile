@@ -9,7 +9,7 @@ RUN npm run build
 # Set up the Python environment
 FROM python:3.7-slim
 WORKDIR /app
-COPY --from=build-stage /app/out ./out
+COPY --from=build-stage /app/.next ./.next
 COPY ./api ./api
 RUN pip install -r ./api/requirements.txt
 
