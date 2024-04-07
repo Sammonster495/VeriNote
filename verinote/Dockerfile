@@ -11,8 +11,6 @@ FROM python:3.11.3-slim
 WORKDIR /app
 COPY --from=build-stage /app/.next ./.next
 COPY ./api ./api
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
 RUN pip install -r ./api/requirements.txt
 
 # Copy the real_500.jpg file
