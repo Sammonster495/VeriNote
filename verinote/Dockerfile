@@ -11,6 +11,19 @@ FROM python:3.11.3-slim
 WORKDIR /app
 COPY --from=build-stage /app/.next ./.next
 COPY ./api ./api
+
+# Install Rust and Cargo
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
+    export PATH="$HOME/.cargo/bin:$PATH" && \
+    rustup install stable && \
+    rustup default stable
+
+# Set Rust and Cargo environment variables
+ENV PATH="/root/.cargo/bin:$PATH"
+
+# Install Python dependencies
 RUN pip install -r ./api/requirements.txt
 
 # Copy the real_500.jpg file
