@@ -16,14 +16,14 @@ export default function Verify(){
             return alert("Please select an image");
         }
         const formData = new FormData();
-        formData.append("image", selectedFile); // Use "image" instead of "file" as the key
+        formData.append("image", selectedFile);
         try {
-            const response = await axios.post(`${process.env.BACKEND_URL}/analyze`, formData, {
+            const response = await axios.post(`http://localhost:5000/analyze`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
             });
-            setPrediction(response.data.result); // Use "result" instead of "prediction"
+            setPrediction(response.data.result);
             console.log(response.data.result);
         } catch (err) {
             console.log(err);
@@ -56,7 +56,7 @@ export default function Verify(){
                     <div className="absolute border border-dashed lg:h-[19rem] md:h-[15rem] sm:h-[11rem] h-[9rem] lg:w-[38rem] md:w-[30rem] sm:w-[20rem] w-full right-0">
                     <div className="relative w-full h-full">
                         {prediction && selectedFile && <img src={URL.createObjectURL(selectedFile)} alt="selected image" className="object-fill w-full h-full absolute" />}
-                        {prediction && <p className={`${prediction==="FAKE" ? "text-red-600" : "text-green-900"} text-5xl font-bold self-center justify-self-center absolute inset-0 flex items-center justify-center`}>{prediction}</p>}
+                        {prediction && <p className={`${prediction==="FAKE" ? "text-red-600" : "text-green-900"} lg:text-[8rem] md:text-[6rem] sm:text-[4rem] text-[3rem] font-bold self-center justify-self-center absolute inset-0 flex items-center justify-center`}>{prediction}</p>}
                     </div>
 
                     </div>
