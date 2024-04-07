@@ -93,7 +93,7 @@ opencv-python==4.9.0.80
 overrides==7.4.0
 packaging==23.1
 pandas==2.0.3
-pandas-profiling==3.2.0
+pandas-profiling>=3.2.0
 pandocfilters==1.5.0
 parso==0.8.3
 patsy==0.5.3
@@ -110,8 +110,8 @@ pure-eval==0.2.2
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
 pycparser==2.21
-pydantic
-pydantic-settings==2.0.3
+pydantic>=1.8.1,<2.0
+pydantic-settings>=2.0.3
 pydantic_core==2.10.1
 pygame==2.5.2
 Pygments==2.16.1
