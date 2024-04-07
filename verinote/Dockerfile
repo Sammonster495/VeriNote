@@ -23,8 +23,15 @@ RUN apt-get update && \
 # Set Rust and Cargo environment variables
 ENV PATH="/root/.cargo/bin:$PATH"
 
+# Install pip-tools
+RUN pip install pip-tools
+
+# Compile requirements
+COPY ./api/requirements.in .
+RUN pip-compile requirements.in
+
 # Install Python dependencies
-RUN pip install -r ./api/requirements.txt
+RUN pip-sync
 
 # Copy the real_500.jpg file
 COPY ./api/real_500.jpg ./api/real_500.jpg
