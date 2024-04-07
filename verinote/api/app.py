@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 
-app = Flask(__name__,static_folder='/app/.next')
+app = Flask(__name__,static_folder='/app/.next/static')
 CORS(app)
 
 @app.route('/', defaults={'path': ''})
