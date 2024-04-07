@@ -1,11 +1,20 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 import cv2
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='/app/.next')
 CORS(app)
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
