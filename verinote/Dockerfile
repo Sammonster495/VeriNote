@@ -36,5 +36,8 @@ RUN pip-sync
 # Copy the real_500.jpg file
 COPY ./api/real_500.jpg ./api/real_500.jpg
 
+# Set FLASK_APP environment variable
+ENV FLASK_APP=api/app.py
+
 # Start the Flask app
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
