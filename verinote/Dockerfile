@@ -33,6 +33,9 @@ RUN pip-compile requirements.in
 # Install Python dependencies
 RUN pip-sync
 
+# Install the missing library
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 # Copy the real_500.jpg file
 COPY ./api/real_500.jpg ./api/real_500.jpg
 
