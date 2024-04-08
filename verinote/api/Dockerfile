@@ -1,11 +1,3 @@
-# Build the Next.js app
-FROM node:18.17.0 as build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
 # Set up the Python environment
 FROM python:3.11.3-slim
 WORKDIR /app
