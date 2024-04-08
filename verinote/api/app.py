@@ -3,7 +3,6 @@ from flask_cors import CORS
 import os
 import cv2
 import numpy as np
-from skimage.metrics import structural_similarity as ssim
 
 app = Flask(__name__)
 CORS(app)
